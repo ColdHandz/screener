@@ -1,7 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace screener {
-    [Route("/")]
+    // [Route("{*.}")]
+    // public class AllRoutes : Controller {
+    //     [HttpGet]
+    //     public dynamic Test() {
+    //         return Redirect("/");
+    //     }
+    // }
+    [Route("/test")]
     public class TestRoute : Controller {
         [HttpGet]
         public dynamic Test() {

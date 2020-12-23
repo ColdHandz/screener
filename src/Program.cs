@@ -1,14 +1,8 @@
-using Microsoft.AspNetCore.Hosting;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
-// using Microsoft.AspNetCore.Http;
-// using Microsoft.Extensions.Configuration;
-// using Microsoft.Extensions.Logging;
 
 namespace screener {
     public class HostClass {
@@ -19,6 +13,7 @@ namespace screener {
         public static IHostBuilder CreateHostBuilder() {
             return Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(bldr => {
+                    bldr.UseWebRoot("./public");
                     bldr.UseUrls("http://localhost:8081");
                     bldr.UseStartup<Startup>();
                 });
@@ -35,6 +30,9 @@ namespace screener {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseEndpoints(endpoints => {

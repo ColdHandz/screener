@@ -1,7 +1,9 @@
-const TerserPlugin = require('terser-webpack-plugin')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
+const path = require('path')
 const argv = require('yargs').argv
-
+const TerserPlugin = require('terser-webpack-plugin')
+// const StyleLintPlugin = require('stylelint-webpack-plugin')
+// const WebpackNotifierPlugin = require('webpack-notifier')
+// const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     entry: [
@@ -72,6 +74,9 @@ module.exports = {
             '.js',
             '.css',
             '.sass'
-        ]
+        ],
+        alias: {
+            '@': path.resolve(__dirname, './client/app'),
+        }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.FileProviders;
 
 namespace screener {
     public class HostClass {
@@ -33,6 +34,7 @@ namespace screener {
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints => {

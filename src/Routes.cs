@@ -12,11 +12,7 @@ namespace screener {
     public class JsonRoute : Controller {
         [HttpGet]
         public dynamic Test() {
-            return new {
-                nesting = new {
-                    title = "Hello World"
-                }
-            };
+            return new { title = "Hello World" };
         }
     }
 }

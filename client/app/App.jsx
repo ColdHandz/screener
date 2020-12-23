@@ -10,7 +10,7 @@ export default class App extends React.Component {
         return (
             <Router>
                 <Switch>
-                    <Route path="/" children={ <div> <Index /> <Index /> </div> } />
+                    <Route path="/" children={ <Index /> } />
                     <Route path="/nested" children={ <Nested /> } />
                     <Route path="/company" children={ <Company /> } />
                 </Switch>

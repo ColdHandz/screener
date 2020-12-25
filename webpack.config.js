@@ -1,9 +1,9 @@
 const path = require('path')
 const argv = require('yargs').argv
 const TerserPlugin = require('terser-webpack-plugin')
+// const HtmlWebpackPlugin = require("html-webpack-plugin")
 // const StyleLintPlugin = require('stylelint-webpack-plugin')
 // const WebpackNotifierPlugin = require('webpack-notifier')
-// const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     entry: [
@@ -37,38 +37,23 @@ module.exports = {
                 }
             },
             {
-                test: /\.(scss)$/,
-                exclude: [/node_modules/],
+                test: /\.(s(a|c)ss)$/,
                 use: [
-                    { loader: 'vue-style-loader' },
-                    { loader: 'css-loader' },
-                    { loader: 'sass-loader' },
-                ]
-            },
-            {
-                test: /\.(sass)$/,
-                use: [
-                    { loader: 'vue-style-loader' },
+                    { loader: 'style-loader' },
                     { loader: 'css-loader' },
                     {
                         loader: 'sass-loader',
                         options: {
-                            indentedSyntax: true,
                             sourceMap: true
                         }
                     },
                 ]
-            },
-            {
-                test: /\.(styl|stylus)$/,
-                use: [
-                    { loader: 'vue-style-loader' },
-                    { loader: 'css-loader' },
-                    { loader: 'stylus-loader' }
-                ]
             }
         ]
     },
+    plugins: [
+        // new HtmlWebpackPlugin()
+    ],
     resolve: {
         extensions: [
             '.js',

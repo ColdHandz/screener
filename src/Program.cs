@@ -1,9 +1,8 @@
-using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 
 namespace screener {
     public class HostClass {
@@ -14,7 +13,6 @@ namespace screener {
         public static IHostBuilder CreateHostBuilder() {
             return Host.CreateDefaultBuilder()
                 .ConfigureWebHostDefaults(bldr => {
-                    bldr.UseWebRoot("./public");
                     bldr.UseUrls("http://localhost:8081");
                     bldr.UseStartup<Startup>();
                 });
@@ -24,6 +22,9 @@ namespace screener {
     public class Startup {
         public void ConfigureServices(IServiceCollection services) {
             services.AddControllers();
+            services.AddSpaStaticFiles(configuration => {
+                configuration.RootPath = "public";
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
@@ -34,11 +35,21 @@ namespace screener {
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseSpaStaticFiles();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "client";
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
             });
         }
     }

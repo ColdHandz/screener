@@ -4,8 +4,8 @@ namespace screener {
     // [Route("{*.}")]
     // public class AllRoutes : Controller {
     //     [HttpGet]
-    //     public dynamic Test() {
-    //         return Redirect("/");
+    //     public dynamic Index() {
+    //         return File("/public/index.html", "text/html");
     //     }
     // }
     [Route("/test")]

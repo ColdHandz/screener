@@ -4,8 +4,8 @@ namespace screener {
     // [Route("{*.}")]
     // public class AllRoutes : Controller {
     //     [HttpGet]
-    //     public dynamic Index() {
-    //         return File("/public/index.html", "text/html");
+    //     public void Routes() {
+    //         Response.Headers.Add("X-Stuff", "stuff");
     //     }
     // }
     [Route("/test")]

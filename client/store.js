@@ -13,6 +13,8 @@ const decrement = () => {
     }
 }
 
+const setStateTo100 = 'setStateTo100'
+
 // reducer
 const counter = (state = 0, action) => {
     switch(action.type) {
@@ -20,6 +22,8 @@ const counter = (state = 0, action) => {
             return state + 1
         case 'decrement':
             return state - 1
+        case 'setStateTo100':
+            return 100
     }
 }
 
@@ -28,5 +32,6 @@ let store = createStore(counter)
 
 store.dispatch(increment())
 store.dispatch(decrement())
+store.dispatch('setStateTo100')
 
 export default store

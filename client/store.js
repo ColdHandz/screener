@@ -1,10 +1,37 @@
-import { observable, action } from 'mobx'
+import { createStore } from 'redux'
 
-class store {
-    @observable someNumber = 123
-    @action makeSomeNumberMore() {
-        this.someNumber = this.someNumber + 1
+// actions
+const increment = () => {
+    return {
+        type: 'increment'
     }
 }
+
+const decrement = () => {
+    return {
+        type: 'decrement'
+    }
+}
+
+const setStateTo100 = 'setStateTo100'
+
+// reducer
+const counter = (state = 0, action) => {
+    switch(action.type) {
+        case 'increment':
+            return state + 1
+        case 'decrement':
+            return state - 1
+        case 'setStateTo100':
+            return 100
+    }
+}
+
+// store
+let store = createStore(counter)
+
+store.dispatch(increment())
+store.dispatch(decrement())
+store.dispatch({ type: 'setStateTo100' })
 
 export default store

@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import Index from './components/Index.jsx'
 import Company from './components/Company.jsx'
 import './styles/index.sass'
+import './store.js'
 
 ReactDOM.render(
     <BrowserRouter>

@@ -22,28 +22,26 @@ export default class Index extends React.Component {
     }
     componentDidMount() {
         this.props.store.getMoexData().then(e => {
-            this.state.rows = e.data.secstats.data
+            this.setState({
+                rows: e.data.secstats.data
+            })
         })
     }
     render() {
         return (
             <div>
-                {JSON.stringify(this.state)}
                 <TableContainer component={Paper}>
                     <Table size="small" aria-label="a dense table">
                         <TableHead>
                             <TableRow>
                                 <TableCell>Тикер</TableCell>
-                                <TableCell align="right">VOLTODAY1</TableCell>
-                                <TableCell align="right">VOLTODAY2</TableCell>
-                                <TableCell align="right">Carbs (g)</TableCell>
-                                <TableCell align="right">Protein (g)</TableCell>
+                                <TableCell>VOLTODAY1</TableCell>
+                                <TableCell>VOLTODAY2</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.state.rows}
-                            {this.state.rows.map(e =>
-                                <TableRow>
+                            {this.state.rows.map((e,i) =>
+                                <TableRow key={i}>
                                     <TableCell>{e[0]}</TableCell>
                                     <TableCell>{e[5]}</TableCell>
                                     <TableCell>{e[6]}</TableCell>

@@ -65,7 +65,7 @@ module.exports = {
             '.sass'
         ],
         alias: {
-            '@': path.resolve(__dirname, './client/app'),
+            '@': path.resolve(__dirname, './client'),
         }
     }
 }

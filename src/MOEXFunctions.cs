@@ -2,14 +2,13 @@ using System;
 
 namespace screener {
     class MOEX {
-        public string allStockSharesSecstatsURL = "https://iss.moex.com/iss/engines/stock/markets/shares/secstats.json";
+        public static string allStockSharesSecstatsURL = "https://iss.moex.com/iss/engines/stock/markets/shares/secstats.json";
+        public static string stockMarketsURL = "https://iss.moex.com/iss/engines/stock/markets.json";
         public static void getAllStocks() {
-            var ScreenerData = JSON.StringToObject(
-                // Requests.Get(allStockSharesSecstatsURL)
-                Requests.Get("https://iss.moex.com/iss/engines/stock/markets.json")
-            );
+            var ScreenerData = JSON.StringToObject(Requests.Get(stockMarketsURL));
 
-            Console.WriteLine(ScreenerData["markets"]);
+            Console.WriteLine(ScreenerData);
+            Console.WriteLine(ScreenerData.GetType());
         }
     }
 }

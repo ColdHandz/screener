@@ -8,7 +8,7 @@ namespace screener {
     //         Response.Headers.Add("X-Stuff", "stuff");
     //     }
     // }
-    [Route("/moex/moex")]
+    [Route("/moex/getallstocks")]
     public class MOEXRoute : Controller {
         [HttpGet]
         public dynamic Test() {

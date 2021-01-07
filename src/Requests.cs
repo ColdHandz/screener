@@ -19,7 +19,7 @@ namespace screener {
             HttpResponseMessage response = Client.GetAsync(url).Result;
             string result = response.Content.ReadAsStringAsync().Result;
 
-            Console.WriteLine($"HttpClient Get result: {result}");
+            // Console.WriteLine($"HttpClient Get result: {result}");
 
             return result;
         }
@@ -31,7 +31,7 @@ namespace screener {
             HttpResponseMessage response = Client.PostAsync(url, content).Result;
             string result = response.Content.ReadAsStringAsync().Result;
 
-            Console.WriteLine($"HttpClient POST result: {result}");
+            // Console.WriteLine($"HttpClient POST result: {result}");
 
             return result;
         }

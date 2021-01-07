@@ -12,6 +12,7 @@ namespace screener {
     public class MOEXRoute : Controller {
         [HttpGet]
         public dynamic Test() {
+            MOEX.getAllStocks();
             return "Hello World";
         }
     }

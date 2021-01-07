@@ -8,6 +8,13 @@ namespace screener {
     //         Response.Headers.Add("X-Stuff", "stuff");
     //     }
     // }
+    [Route("/moex/moex")]
+    public class MOEXRoute : Controller {
+        [HttpGet]
+        public dynamic Test() {
+            return "Hello World";
+        }
+    }
     [Route("/test")]
     public class TestRoute : Controller {
         [HttpGet]

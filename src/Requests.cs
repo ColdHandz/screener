@@ -24,16 +24,6 @@ namespace screener {
 
             return result;
         }
-        // public static string GetJSON(string url = "http://example.com/") {
-        //     Console.WriteLine($"Get from {url}");
-
-        //     HttpResponseMessage response = Client.GetFromJsonAsync<dynamic>(url).Result;
-        //     string result = response.Content.ReadAsStringAsync().Result;
-
-        //     Console.WriteLine($"HttpClient Get result: {result}");
-
-        //     return result;
-        // }
         public static string Post(string body = "{}", string url = "http://example.com/", string ContentTypeHeader = "application/json") {
             Console.WriteLine($"Post to {url} with {body}");
 

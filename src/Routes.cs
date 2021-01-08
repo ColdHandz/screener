@@ -1,19 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 
 namespace screener {
-    // [Route("{*.}")]
-    // public class AllRoutes : Controller {
-    //     [HttpGet]
-    //     public void Routes() {
-    //         Response.Headers.Add("X-Stuff", "stuff");
-    //     }
-    // }
     [Route("/moex/getallstocks")]
     public class MOEXRoute : Controller {
         [HttpGet]
         public dynamic Test() {
-            MOEX.getAllStocks();
-            return "Hello World";
+            return MOEX.getAllStocks();
         }
     }
     [Route("/test")]
@@ -30,4 +22,11 @@ namespace screener {
             return new { title = "Hello World" };
         }
     }
+    // [Route("{*.}")]
+    // public class AllRoutes : Controller {
+    //     [HttpGet]
+    //     public void Routes() {
+    //         Response.Headers.Add("X-Stuff", "stuff");
+    //     }
+    // }
 }

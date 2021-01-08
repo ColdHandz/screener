@@ -1,15 +1,14 @@
 using System;
 using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace screener {
     class JSON {
         public static dynamic StringToObject(string str) {
-            return JsonSerializer.Deserialize<dynamic>(str);
+            return JsonConvert.DeserializeObject<dynamic>(str);
         }
-        // public static dynamic JsonToString(dynamic JsonOrBson) {
-        //     return JsonConvert.SerializeObject(JsonOrBson);
-        // }
+        public static dynamic JsonToString(dynamic JsonOrBson) {
+            return JsonConvert.SerializeObject(JsonOrBson);
+        }
     }
 }

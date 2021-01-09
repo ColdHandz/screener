@@ -5,13 +5,14 @@ namespace screener {
         public static string allStockSharesSecstatsURL = "https://iss.moex.com/iss/engines/stock/markets/shares/secstats.json";
         public static string stockMarketsURL = "https://iss.moex.com/iss/engines/stock/markets.json";
         public static dynamic getAllStocks() {
-            var ScreenerData = JSON.StringToObject(Requests.Get(stockMarketsURL));
+            var ScreenerData = JSON.StringToObject(Requests.Get(allStockSharesSecstatsURL));
 
             Console.WriteLine(ScreenerData);
             Console.WriteLine(ScreenerData.GetType());
-            Console.WriteLine(ScreenerData["markets"]["data"]);
 
             return JSON.JsonToString(ScreenerData);
         }
+        // TODO найти все стоки
+        // TODO 
     }
 }

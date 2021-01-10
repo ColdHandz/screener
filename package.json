@@ -26,6 +26,8 @@
     "@babel/preset-react": "^7.12.10",
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "browserslist": "^4.16.0",
@@ -47,6 +49,12 @@
     "stylelint-webpack-plugin": "^2.1.1",
     "stylus-loader": "^4.3.1",
     "terser-webpack-plugin": "^5.0.3",
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.6",
+    "vue-loader": "^15.9.6",
+    "vue-router": "^3.4.9",
+    "vuex": "^3.6.0",
+    "vuex-class": "^0.3.2",
     "yargs": "^16.2.0"
   },
   "devDependencies": {}

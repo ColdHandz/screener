@@ -1,20 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter, Switch, Route } from "react-router-dom"
-import { Provider } from 'mobx-react'
-import Index from '@/components/Index.jsx'
-import Company from '@/components/Company.jsx'
-import '@/styles/index.sass'
-import mobxStore from '@/mobxStore.js'
+import Vue from 'vue'
+import Vuex from 'vuex'
+import App from './app/App.js'
+// import store from './store.js'
 
-ReactDOM.render(
-    <Provider store={mobxStore}>
-        <BrowserRouter>
-            <Switch>
-                <Route path="/company" children={ <Company /> } />
-                <Route path="/" children={ <Index /> } />
-            </Switch>
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root')
-)
+// Vue.use(Vuex)
+
+new Vue({
+    el: "#root",
+    // store: new Vuex(store),
+    components: {
+        App
+    }
+})

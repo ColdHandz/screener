@@ -12,7 +12,7 @@ namespace screener {
 
             return JSON.JsonToString(ScreenerData);
         }
-        // TODO найти все стоки
-        // TODO 
+        // TODO найти все акции
+        // TODO перебрать их и добавить к ним всю возможную информацию (например с /card/info)
     }
 }

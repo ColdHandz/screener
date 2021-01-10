@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "devDependencies": {
-    "@vue/cli-service": "~4.5.0"
+    "@vue/cli-service": "^4.5.10"
   },
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch --mode=development",
+    "serve": "dotnet watch run",
     "save": "git add . && git commit -m save && git push",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -57,8 +58,10 @@
     "vue-class-component": "^7.2.6",
     "vue-loader": "^15.9.6",
     "vue-router": "^3.4.9",
+    "vuetify": "^2.4.2",
     "vuex": "^3.6.0",
     "vuex-class": "^0.3.2",
+    "webpack-cli": "^4.3.1",
     "yargs": "^16.2.0"
   },
   "readme": "ERROR: No README data found!",

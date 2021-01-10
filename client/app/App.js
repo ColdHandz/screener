@@ -9,6 +9,7 @@ export default class App extends Vue {
         return (
             <div>
                 <div>Hello from vue!</div>
+                <v-divider />
                 <div>{this}</div>
                 <div>{this.asd}</div>
                 <div>{this.props}</div>

@@ -1,6 +1,10 @@
 {
   "name": "screener",
   "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "@vue/cli-service": "~4.5.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -57,5 +61,6 @@
     "vuex-class": "^0.3.2",
     "yargs": "^16.2.0"
   },
-  "devDependencies": {}
+  "readme": "ERROR: No README data found!",
+  "_id": "screener@1.0.0"
 }

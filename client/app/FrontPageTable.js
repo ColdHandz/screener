@@ -6,7 +6,27 @@ const TableHeader = styled.th`
     text-align: left;
 `
 
-const IconChevronDown = () => <v-icon color="gray">mdi-chevron-down</v-icon>
+const IconChevronDown = () => <v-icon color="gray" style="cursor: pointer">mdi-chevron-down</v-icon>
+const IconChevronUp = () => <v-icon color="gray" style="cursor: pointer">mdi-chevron-up</v-icon>
+
+@Component
+class TableRow extends Vue {
+    expandRow = false
+    render() {
+        return (
+            <tr>
+                <td>
+                    {this.expandRow ? <IconChevronUp/> : <IconChevronDown/>}
+                </td>
+                <td>asd2</td>
+                <td>asd2</td>
+                <td>asd2</td>
+                <td>asd2</td>
+                <td>asd2</td>
+            </tr>
+        )
+    }
+}
 
 @Component
 export default class FrontPageTable extends Vue {
@@ -26,24 +46,10 @@ export default class FrontPageTable extends Vue {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <IconChevronDown/>
-                                </td>
-                                <td>asd2</td>
-                                <td>asd2</td>
-                                <td>asd2</td>
-                                <td>asd2</td>
-                                <td>asd2</td>
-                            </tr>
-                            <tr>
-                                <td collspan="7">
-                                <v-expansion-panel>
-                                    <v-expansion-panel-header>Panel 1</v-expansion-panel-header>
-                                    <v-expansion-panel-content>Some content</v-expansion-panel-content>
-                                </v-expansion-panel>
-                                </td>
-                            </tr>
+                            {[1,2,3].map((e,i) =>
+                                <TableRow/>
+                                <TableDetails/>
+                            )}
                         </tbody>
                     </template>
                 </VSimpleTable>

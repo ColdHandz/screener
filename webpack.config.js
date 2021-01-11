@@ -47,7 +47,7 @@ module.exports = {
             {
                 test: /\.vue$/,
                 use: [
-                    { loader: 'vue-loader' },
+                    'vue-loader',
                     {
                         loader: 'babel-loader',
                         options: {
@@ -61,16 +61,28 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(s(a|c)ss)$/,
+                test: /\.css$/,
                 use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
+                    'style-loader',
+                    'css-loader',
+                ]
+            },
+            {
+                test: /\.s(c|a)ss$/,
+                use: [
+                    'vue-style-loader',
+                    'style-loader',
+                    'css-loader',
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            implementation: require('sass'),
+                            sassOptions: {
+                                indentedSyntax: true
+                            }
                         }
-                    },
+                    }
                 ]
             }
         ]

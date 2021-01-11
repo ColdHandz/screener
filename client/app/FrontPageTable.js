@@ -13,25 +13,27 @@ const IconChevronUp = () => <v-icon color="gray" style="cursor: pointer">mdi-che
 @Component
 class TableRow extends Vue.extend({
     props: {
-        nubmer: Number
+        number: Number
     }
 }) {
     expandRow = false
-    mounted() {
-        console.log('mounted', this)
+
+    expandDetails() {
+        console.log('expandDetails')
+        this.expandRow = !this.expandRow
     }
+
     render() {
         return (
             <VueFragment>
                 <tr>
-                    <td>
+                    <td onClick={this.expandDetails}>
                         {this.expandRow ? <IconChevronUp/> : <IconChevronDown/>}
                     </td>
                     <td>{this}</td>
                     <td>{this.number}</td>
-                    <td>asd2</td>
-                    <td>asd2</td>
-                    <td>asd2</td>
+                    <td>{this.props}</td>
+                    <td></td>
                 </tr>
             </VueFragment>
         )
@@ -47,12 +49,11 @@ export default class FrontPageTable extends Vue {
                     <template slot="default">
                         <thead>
                             <tr>
-                                <TableHeader>asd</TableHeader>
-                                <TableHeader>asd</TableHeader>
-                                <TableHeader>asd</TableHeader>
-                                <TableHeader>asd</TableHeader>
-                                <TableHeader>asd</TableHeader>
-                                <TableHeader>asd</TableHeader>
+                                <TableHeader></TableHeader>
+                                <TableHeader>this</TableHeader>
+                                <TableHeader>this.number</TableHeader>
+                                <TableHeader>this.props</TableHeader>
+                                <TableHeader>props</TableHeader>
                             </tr>
                         </thead>
                         <tbody>

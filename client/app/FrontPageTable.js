@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import styled from 'vue-styled-components'
-import { VSimpleTable, VIcon, VContainer } from 'vuetify/lib'
 
 const TableHeader = styled.th`
     text-align: left;
 `
 
-const IconChevronDown = () => <VIcon color="gray">mdi-chevron-down</VIcon>
+const IconChevronDown = () => <v-icon color="gray">mdi-chevron-down</v-icon>
 
 @Component
 export default class FrontPageTable extends Vue {
@@ -36,6 +35,14 @@ export default class FrontPageTable extends Vue {
                                 <td>asd2</td>
                                 <td>asd2</td>
                                 <td>asd2</td>
+                            </tr>
+                            <tr>
+                                <td collspan="7">
+                                <v-expansion-panel>
+                                    <v-expansion-panel-header>Panel 1</v-expansion-panel-header>
+                                    <v-expansion-panel-content>Some content</v-expansion-panel-content>
+                                </v-expansion-panel>
+                                </td>
                             </tr>
                         </tbody>
                     </template>

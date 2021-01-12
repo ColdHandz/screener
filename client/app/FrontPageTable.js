@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import styled from 'vue-styled-components'
+import { State } from 'vuex-class'
 import { Fragment as VueFragment } from 'vue-fragment'
 
 const TableHeader = styled.th`
@@ -11,15 +12,25 @@ const IconChevronDown = () => <v-icon color="gray" style="cursor: pointer">mdi-c
 const IconChevronUp = () => <v-icon color="gray" style="cursor: pointer">mdi-chevron-up</v-icon>
 
 @Component
+class TableRowDetails extends Vue.extend({}) {
+    render() {
+        return (
+            <tr>
+                <td colSpan="5">this is TableRowDetails</td>
+            </tr>
+        )
+    }
+}
+
+@Component
 class TableRow extends Vue.extend({
     props: {
-        number: Number
+        screenerItem: Array
     }
 }) {
     expandRow = false
 
     expandDetails() {
-        console.log('expandDetails')
         this.expandRow = !this.expandRow
     }
 
@@ -30,11 +41,15 @@ class TableRow extends Vue.extend({
                     <td onClick={this.expandDetails}>
                         {this.expandRow ? <IconChevronUp/> : <IconChevronDown/>}
                     </td>
-                    <td>{this}</td>
-                    <td>{this.number}</td>
-                    <td>{this.props}</td>
-                    <td></td>
+                    <td>{this.screenerItem[0]}</td>
+                    <td>{this.screenerItem}</td>
+                    <td>{this.screenerItem.length}</td>
+                    <td>{typeof this.screenerItem}</td>
+                    {this.screenerItem.map((e,i) => {
+                        <td>{e}</td>
+                    })}
                 </tr>
+                {this.expandRow ? <TableRowDetails/> : null}
             </VueFragment>
         )
     }
@@ -42,6 +57,8 @@ class TableRow extends Vue.extend({
 
 @Component
 export default class FrontPageTable extends Vue {
+    @State(({ screener }) => screener) screener
+    @State('counter') counter
     render() {
         return (
             <VContainer>
@@ -57,12 +74,15 @@ export default class FrontPageTable extends Vue {
                             </tr>
                         </thead>
                         <tbody>
-                            {[1,2,3].map((e,i) =>
-                                <TableRow number={e}/>
+                            {this.screener.filter((e,i) => i < 5).map((e,i) =>
+                                <TableRow screenerItem={e} key={i}/>
                             )}
                         </tbody>
                     </template>
                 </VSimpleTable>
+                <code>
+                    {this.screener}
+                </code>
             </VContainer>
         )
     }

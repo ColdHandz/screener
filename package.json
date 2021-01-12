@@ -39,6 +39,7 @@
     "caniuse-lite": "^1.0.30001170",
     "css-loader": "^5.0.1",
     "html-webpack-plugin": "^4.5.0",
+    "lodash": "^4.17.20",
     "mobx": "^6.0.4",
     "mobx-react": "^7.0.5",
     "mobx-react-router": "^4.1.0",
